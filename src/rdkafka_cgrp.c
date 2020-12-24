@@ -1562,9 +1562,6 @@ void rd_kafka_cgrp_handle_Heartbeat (rd_kafka_t *rk,
  * @brief Send Heartbeat
  */
 static void rd_kafka_cgrp_heartbeat (rd_kafka_cgrp_t *rkcg) {
-        /* Don't send heartbeats if max.poll.interval.ms was exceeded */
-        if (rkcg->rkcg_flags & RD_KAFKA_CGRP_F_MAX_POLL_EXCEEDED)
-                return;
 
         /* Skip heartbeat if we have one in transit */
         if (rkcg->rkcg_flags & RD_KAFKA_CGRP_F_HEARTBEAT_IN_TRANSIT)
